@@ -77,6 +77,23 @@ export function CtaSection() {
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
                   Free 30-min call. No strings attached.
                 </p>
+
+                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+                  <a
+                    href="mailto:musharaf@ramplab.me"
+                    className="font-mono text-foreground/80 hover:text-foreground transition-colors underline underline-offset-4 decoration-foreground/20 hover:decoration-foreground/50"
+                  >
+                    musharaf@ramplab.me
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/ramp-lab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-foreground/60 hover:text-foreground transition-colors underline underline-offset-4 decoration-foreground/20 hover:decoration-foreground/50"
+                  >
+                    LinkedIn →
+                  </a>
+                </div>
               </div>
 
               {/* Right image */}

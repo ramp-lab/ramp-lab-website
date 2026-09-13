@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Check, Mail, MapPin, MessageSquare } from "lucide-react";
+import { ArrowRight, Check, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactPage() {
@@ -96,23 +96,28 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Email</h3>
                   <a
-                    href="mailto:hello@mvpkit.ai"
+                    href="mailto:musharaf@ramplab.me"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    hello@mvpkit.ai
+                    musharaf@ramplab.me
                   </a>
                 </div>
               </div>
 
               <div className="flex gap-4">
                 <div className="bg-foreground/10 rounded-lg p-3 h-fit">
-                  <MessageSquare className="w-5 h-5 text-foreground" />
+                  <Linkedin className="w-5 h-5 text-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Chat</h3>
-                  <p className="text-muted-foreground">
-                    Ask a quick question on our Discord community
-                  </p>
+                  <h3 className="font-semibold text-foreground mb-1">LinkedIn</h3>
+                  <a
+                    href="https://www.linkedin.com/company/ramp-lab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Follow Ramp Lab on LinkedIn
+                  </a>
                 </div>
               </div>
 
@@ -138,12 +143,6 @@ export default function ContactPage() {
                   className="block text-foreground hover:text-foreground/70 transition-colors"
                 >
                   View Pricing
-                </a>
-                <a
-                  href="/#testimonials"
-                  className="block text-foreground hover:text-foreground/70 transition-colors"
-                >
-                  Case Studies
                 </a>
                 <a
                   href="/"

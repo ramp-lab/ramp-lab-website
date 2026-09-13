@@ -14,7 +14,6 @@ const footerLinks = {
   Company: [
     { name: "Our process", href: "#how-it-works" },
     { name: "Our team", href: "#developers" },
-    { name: "Client stories", href: "#testimonials" },
     { name: "Contact", href: "#cta" },
   ],
   Resources: [
@@ -29,9 +28,8 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Twitter", href: "#" },
-  { name: "GitHub", href: "#" },
-  { name: "LinkedIn", href: "#" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/ramp-lab" },
+  { name: "Email", href: "mailto:musharaf@ramplab.me" },
 ];
 
 function AnimatedWaveCanvas() {
@@ -117,9 +115,16 @@ export function FooterSection() {
                 <RampLabLogo variant="light" size="md" />
               </a>
 
-              <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
+              <p className="text-white/50 leading-relaxed mb-6 max-w-xs text-sm">
                 We help non-technical founders turn ideas into real, working products. Design, development, and launch—all in one place.
               </p>
+
+              <a
+                href="mailto:musharaf@ramplab.me"
+                className="block text-sm text-white/70 hover:text-white transition-colors mb-8"
+              >
+                musharaf@ramplab.me
+              </a>
 
               {/* Social Links */}
               <div className="flex gap-6">
@@ -127,6 +132,8 @@ export function FooterSection() {
                   <a
                     key={link.name}
                     href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="text-sm text-white/40 hover:text-white transition-colors flex items-center gap-1 group"
                   >
                     {link.name}

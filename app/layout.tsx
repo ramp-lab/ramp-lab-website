@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   title: 'RampLab - We Build MVPs for Founders Who Move Fast',
   description: 'From napkin sketch to live product in weeks. RampLab is a small team of designers and developers who help non-technical founders launch their first product.',
   generator: 'v0.app',
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+  },
 }
 
 export default function RootLayout({

@@ -8,7 +8,6 @@ import { RampLabLogo } from "@/components/logo";
 const navLinks = [
   { name: "Services",  href: "#features"      },
   { name: "Process",   href: "#how-it-works"  },
-  { name: "Work",      href: "#work"          },
   { name: "About",     href: "#developers"    },
   { name: "Contact",   href: "#cta"           },
 ];
