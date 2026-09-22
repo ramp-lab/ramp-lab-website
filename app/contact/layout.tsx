@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us - MVPKIT AI",
-  description: "Get in touch with our team. Let's discuss your startup platform vision.",
+  title: "Start a project",
+  description:
+    "Tell RampLab what you're building — MVPs, SaaS products, AI applications, and custom software. Get a practical product plan.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactLayout({

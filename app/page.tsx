@@ -1,23 +1,29 @@
-import { Navigation } from "@/components/landing/navigation";
-import { HeroSection } from "@/components/landing/hero-section";
-import { FeaturesSection } from "@/components/landing/features-section";
-import { HowItWorksSection } from "@/components/landing/how-it-works-section";
-import { MetricsSection } from "@/components/landing/metrics-section";
-import { DevelopersSection } from "@/components/landing/developers-section";
-import { CtaSection } from "@/components/landing/cta-section";
-import { FooterSection } from "@/components/landing/footer-section";
+import type { Metadata } from "next";
+import { Hero } from "@/components/home/Hero";
+import { SelectedWork } from "@/components/home/SelectedWork";
+import { Services } from "@/components/home/Services";
+import { WhyRampLab } from "@/components/home/WhyRampLab";
+import { Process } from "@/components/home/Process";
+import { Audiences } from "@/components/home/Audiences";
+import { FinalCta } from "@/components/site/FinalCta";
+
+export const metadata: Metadata = {
+  title: "RampLab — Product Engineering Studio",
+  description:
+    "RampLab designs and builds MVPs, SaaS products, AI applications and custom software for founders and growing businesses.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <Navigation />
-      <HeroSection />
-      <FeaturesSection />
-      <MetricsSection />
-      <HowItWorksSection />
-      <DevelopersSection />
-      <CtaSection />
-      <FooterSection />
-    </main>
+    <>
+      <Hero />
+      <SelectedWork />
+      <Services />
+      <WhyRampLab />
+      <Process />
+      <Audiences />
+      <FinalCta />
+    </>
   );
 }

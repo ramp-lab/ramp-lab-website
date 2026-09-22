@@ -1,283 +1,144 @@
-"use client";
-
-import { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, Check, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
+import { ArrowLeft, ArrowUpRight, CalendarClock, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/site/Reveal";
+
+const CONTACT_EMAIL = "musharaf@ramplab.me";
+const CALL_LINK = "https://cal.com/mushraf-parwej-kw55pq/inro-call";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const pageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("[v0] Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", email: "", company: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
-  };
-
   return (
-    <div ref={pageRef} className="min-h-screen bg-background">
-      {/* Navigation Bar */}
-      <nav className="border-b border-foreground/10 sticky top-0 z-40 bg-background/80 backdrop-blur-sm">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-display text-xl text-foreground">MVPKIT</span>
-            <span className="font-mono text-xs text-muted-foreground">AI</span>
-          </Link>
-          <Link
-            href="/"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            ← Back to home
-          </Link>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24 border-b border-foreground/10">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <div
-            className={`transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display tracking-tight mb-6 leading-tight">
-              Let&apos;s talk about
-              <br />
-              <span className="text-foreground/60">your next platform.</span>
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              Whether you're a pre-seed founder with an idea or a startup ready to scale, we'd love to hear about your vision. Get in touch and let's explore if we're a good fit.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Info */}
-          <div
-            className={`lg:col-span-1 transition-all duration-1000 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h2 className="text-2xl font-display mb-8">Get in touch</h2>
-
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="bg-foreground/10 rounded-lg p-3 h-fit">
-                  <Mail className="w-5 h-5 text-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  <a
-                    href="mailto:musharaf@ramplab.me"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    musharaf@ramplab.me
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="bg-foreground/10 rounded-lg p-3 h-fit">
-                  <Linkedin className="w-5 h-5 text-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">LinkedIn</h3>
-                  <a
-                    href="https://www.linkedin.com/company/ramp-lab"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    Follow Ramp Lab on LinkedIn
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="bg-foreground/10 rounded-lg p-3 h-fit">
-                  <MapPin className="w-5 h-5 text-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Location</h3>
-                  <p className="text-muted-foreground">Remote-first, global team</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="mt-12 pt-8 border-t border-foreground/10">
-              <h3 className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wide">
-                Quick Links
-              </h3>
-              <div className="space-y-3">
-                <a
-                  href="/#pricing"
-                  className="block text-foreground hover:text-foreground/70 transition-colors"
-                >
-                  View Pricing
-                </a>
-                <a
-                  href="/"
-                  className="block text-foreground hover:text-foreground/70 transition-colors"
-                >
-                  Our Services
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div
-            className={`lg:col-span-2 transition-all duration-1000 delay-200 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Your Name
-                    </label>
-                    <Input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Jane Doe"
-                      required
-                      className="h-12 rounded-lg border-foreground/20"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
-                    </label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="jane@startup.com"
-                      required
-                      className="h-12 rounded-lg border-foreground/20"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Company / Project Name
-                  </label>
-                  <Input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Your startup name"
-                    className="h-12 rounded-lg border-foreground/20"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Tell us about your project
-                  </label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="What are you building? Who is it for? What's your timeline?"
-                    required
-                    rows={6}
-                    className="rounded-lg border-foreground/20 resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-foreground hover:bg-foreground/90 text-background h-12 rounded-lg text-base group"
-                >
-                  Send Message
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  We typically respond within 24-48 hours
-                </p>
-              </form>
-            ) : (
-              <div className="flex flex-col items-center justify-center py-16 px-8 bg-foreground/5 rounded-lg border border-foreground/10">
-                <div className="bg-foreground/20 rounded-full p-4 mb-4">
-                  <Check className="w-8 h-8 text-foreground" />
-                </div>
-                <h3 className="text-2xl font-display text-foreground mb-2">
-                  Message received!
-                </h3>
-                <p className="text-muted-foreground text-center mb-8">
-                  Thanks for reaching out. We'll review your message and get back to you soon at {formData.email}.
-                </p>
-                <Button
-                  variant="outline"
-                  onClick={() => (window.location.href = "/")}
-                  className="border-foreground/20 rounded-full"
-                >
-                  Back to home
-                </Button>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Footer CTA */}
-      <section className="border-t border-foreground/10 py-16 lg:py-24">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-display mb-6">
-            Not sure if this is for you?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Join our waitlist and we'll help you figure out if we're the right partner for your startup.
-          </p>
-          <Link href="/">
-            <Button
-              size="lg"
-              className="bg-foreground hover:bg-foreground/90 text-background px-8 h-12 rounded-full"
+    <>
+      <section aria-labelledby="contact-heading" className="relative overflow-hidden">
+        <div aria-hidden="true" className="bg-blueprint absolute inset-0" />
+        <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-28 sm:px-8 sm:pt-32 lg:pt-40">
+          <Reveal>
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground"
             >
-              Join the Waitlist
-            </Button>
-          </Link>
+              <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
+              Home
+            </Link>
+            <p className="mt-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              <span aria-hidden="true" className="inline-block h-px w-10 bg-accent" />
+              Start a project
+            </p>
+            <h1
+              id="contact-heading"
+              className="mt-7 max-w-3xl font-display text-5xl leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl"
+            >
+              Tell us what you&rsquo;re building.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              You don&rsquo;t need a perfectly defined specification. Pick whichever
+              is easier — a short call, or a plain email — and we&rsquo;ll take it
+              from there.
+            </p>
+          </Reveal>
         </div>
       </section>
-    </div>
+
+      <div className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 lg:pb-28">
+        <div className="grid gap-px border border-border bg-border lg:grid-cols-2">
+          {/* Discovery call */}
+          <Reveal className="h-full">
+            <article className="flex h-full flex-col bg-background p-8 sm:p-10">
+              <span className="inline-flex h-11 w-11 items-center justify-center border border-border">
+                <CalendarClock className="h-5 w-5 text-accent" />
+              </span>
+              <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Option 1 — fastest
+              </p>
+              <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">
+                Book a discovery call
+              </h2>
+              <p className="mt-4 flex-1 leading-relaxed text-muted-foreground">
+                A free 30-minute conversation. Walk us through the idea, we&rsquo;ll
+                ask sharp questions, and you&rsquo;ll leave with an honest take on
+                scope, approach, and whether we&rsquo;re the right team. No pitch
+                decks needed.
+              </p>
+              <Button
+                asChild
+                className="group mt-8 h-auto w-full rounded-none px-7 py-4 text-base hover:bg-accent hover:text-accent-foreground sm:w-auto"
+              >
+                <a href={CALL_LINK} target="_blank" rel="noopener noreferrer">
+                  Book a free intro call
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </Button>
+            </article>
+          </Reveal>
+
+          {/* Plain email */}
+          <Reveal delay={100} className="h-full">
+            <article className="flex h-full flex-col bg-background p-8 sm:p-10">
+              <span className="inline-flex h-11 w-11 items-center justify-center border border-border">
+                <Mail className="h-5 w-5 text-accent" />
+              </span>
+              <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Option 2 — in your own time
+              </p>
+              <h2 className="mt-3 font-display text-3xl tracking-tight sm:text-4xl">
+                Send a plain email
+              </h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                Write to us directly. A few lines on each of these is plenty:
+              </p>
+              <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                {[
+                  "What you're building and who it's for",
+                  "What you need help with",
+                  "Rough budget and timeline, if you know them",
+                ].map((item) => (
+                  <li key={item} className="flex gap-2.5">
+                    <span aria-hidden="true" className="mt-2 inline-block h-1 w-1 shrink-0 bg-accent" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="mt-6 font-mono text-sm text-foreground underline decoration-border underline-offset-4 hover:text-accent sm:text-base"
+              >
+                {CONTACT_EMAIL}
+              </a>
+              <Button
+                asChild
+                variant="outline"
+                className="group mt-8 h-auto w-full rounded-none px-7 py-4 text-base hover:border-accent hover:bg-transparent hover:text-accent sm:w-auto"
+              >
+                <a href={`mailto:${CONTACT_EMAIL}`}>
+                  Compose email
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </Button>
+            </article>
+          </Reveal>
+        </div>
+
+        <Reveal className="mt-14">
+          <div className="border border-border p-7 sm:p-10">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              What happens next
+            </h2>
+            <ol className="mt-5 grid gap-6 sm:grid-cols-3">
+              {[
+                ["01", "We reply within 24–48 hours", "With first questions or a call invite."],
+                ["02", "A working session", "We dig into goals, users, and constraints."],
+                ["03", "A practical product plan", "Honest scope, approach, and timeline."],
+              ].map(([index, title, copy]) => (
+                <li key={index}>
+                  <p className="font-mono text-xs text-muted-foreground">{index}</p>
+                  <p className="mt-2 font-medium text-foreground">{title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{copy}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </Reveal>
+      </div>
+    </>
   );
 }
