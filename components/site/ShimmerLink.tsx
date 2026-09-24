@@ -11,14 +11,18 @@ export function ShimmerLink({
   href,
   children,
   className,
+  external = false,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  /** Open in a new tab (e.g. the booking link). */
+  external?: boolean;
 }) {
   return (
     <Link
       href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={
         {
           "--spread": "90deg",

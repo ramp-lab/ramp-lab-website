@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Check, Compass, Hammer, PenTool, Rocket } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { PageHero } from "@/components/site/PageHero";
 import { FinalCta } from "@/components/site/FinalCta";
 
 export const metadata: Metadata = {
@@ -13,6 +15,7 @@ const phases = [
   {
     index: "01",
     title: "Discover",
+    icon: Compass,
     summary: "Understand the business, users, and product requirements.",
     happens: [
       "Working sessions to map goals, users, and constraints",
@@ -24,6 +27,7 @@ const phases = [
   {
     index: "02",
     title: "Design",
+    icon: PenTool,
     summary: "Define the product experience, architecture, and technical plan.",
     happens: [
       "UX flows and interface design for the core journeys",
@@ -35,6 +39,7 @@ const phases = [
   {
     index: "03",
     title: "Build",
+    icon: Hammer,
     summary: "Develop the product in focused iterations with regular working releases.",
     happens: [
       "Short iterations with working software you can click",
@@ -46,6 +51,7 @@ const phases = [
   {
     index: "04",
     title: "Launch",
+    icon: Rocket,
     summary: "Deploy, measure, fix, and continue improving the product.",
     happens: [
       "Production deployment with monitoring from day one",
@@ -59,58 +65,48 @@ const phases = [
 export default function ProcessPage() {
   return (
     <>
-      <section aria-labelledby="process-heading" className="relative overflow-hidden">
-        <div aria-hidden="true" className="bg-blueprint absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-28 sm:px-8 sm:pt-32 lg:pt-40">
-          <Reveal>
-            <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <span aria-hidden="true" className="inline-block h-px w-10 bg-accent" />
-              Process
-            </p>
-            <h1
-              id="process-heading"
-              className="mt-7 max-w-3xl font-display text-5xl leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl"
-            >
-              Discover. Design. Build. Launch.
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              A simple way of working with no black boxes. You always know what&rsquo;s
-              happening, what&rsquo;s next, and what you&rsquo;re paying for.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        id="process-heading"
+        eyebrow="Process"
+        title={<>Discover. Design. <span className="text-glow">Build. Launch.</span></>}
+        lede="A simple way of working with no black boxes. You always know what's happening, what's next, and what you're paying for."
+      />
 
-      <div className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 lg:pb-28">
-        <ol className="border-t border-border">
+      <div className="mx-auto max-w-5xl px-5 pb-20 sm:px-8 lg:pb-28">
+        <ol className="relative space-y-4">
+          <div
+            aria-hidden="true"
+            className="absolute bottom-8 left-[2.75rem] top-8 hidden w-px bg-gradient-to-b from-accent/50 via-accent/20 to-transparent sm:block"
+          />
           {phases.map((phase) => (
             <Reveal as="li" key={phase.index}>
-              <article className="grid gap-8 border-b border-border py-12 lg:grid-cols-12 lg:py-16">
-                <div className="lg:col-span-4">
-                  <p className="font-mono text-xs text-muted-foreground">{phase.index}</p>
-                  <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
-                    {phase.title}
-                  </h2>
-                  <p className="mt-4 font-medium leading-relaxed text-foreground/90">{phase.summary}</p>
-                </div>
-                <div className="lg:col-span-4">
-                  <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    What happens
-                  </h3>
-                  <ul className="mt-4 space-y-2.5">
-                    {phase.happens.map((item) => (
-                      <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
-                        <span aria-hidden="true" className="mt-2 inline-block h-1 w-1 shrink-0 bg-accent" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="lg:col-span-4">
-                  <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    What you get
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-foreground/90">{phase.youGet}</p>
+              <article className="relative grid gap-6 rounded-2xl border border-white/[0.08] bg-card/60 p-6 backdrop-blur sm:grid-cols-[auto_1fr] sm:gap-8 sm:p-8">
+                <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 bg-background text-accent shadow-[0_0_24px_-4px_rgba(52,211,153,0.5)]">
+                  <phase.icon aria-hidden="true" className="h-5 w-5" strokeWidth={1.75} />
+                </span>
+                <div>
+                  <p className="font-mono text-xs text-muted-foreground">Phase {phase.index}</p>
+                  <h2 className="mt-2 font-display text-3xl sm:text-4xl">{phase.title}</h2>
+                  <p className="mt-3 font-medium leading-relaxed text-foreground/90">{phase.summary}</p>
+                  <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                    <div>
+                      <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                        What happens
+                      </h3>
+                      <ul className="mt-4 space-y-2.5">
+                        {phase.happens.map((item) => (
+                          <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                            <Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="rounded-xl border border-accent/20 bg-accent/[0.05] p-5">
+                      <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-accent">What you get</h3>
+                      <p className="mt-3 leading-relaxed text-foreground/90">{phase.youGet}</p>
+                    </div>
+                  </div>
                 </div>
               </article>
             </Reveal>

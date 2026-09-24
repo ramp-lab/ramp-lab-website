@@ -4,6 +4,8 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { FinalCta } from "@/components/site/FinalCta";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { PageHero } from "@/components/site/PageHero";
+import { MagicCard } from "@/components/ui/magic-card";
 import { DeliverablesGrid } from "@/components/home/Deliverables";
 
 export const metadata: Metadata = {
@@ -55,45 +57,35 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <section aria-labelledby="services-heading" className="relative overflow-hidden">
-        <div aria-hidden="true" className="bg-blueprint absolute inset-0" />
-        <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-28 sm:px-8 sm:pt-32 lg:pt-40">
-          <Reveal>
-            <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              <span aria-hidden="true" className="inline-block h-px w-10 bg-accent" />
-              Services
-            </p>
-            <h1
-              id="services-heading"
-              className="mt-7 max-w-3xl font-display text-5xl leading-[1.0] tracking-tight sm:text-6xl lg:text-7xl"
-            >
-              What we build.
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              We design and build custom software end to end — and every project
-              ends with the live product, the source code, the design files, and
-              the docs in your hands. Each service below links to a real build.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        id="services-heading"
+        eyebrow="Services"
+        title={<>What we <span className="text-glow">build.</span></>}
+        lede="We design and build custom software end to end — and every project ends with the live product, the source code, the design files, and the docs in your hands. Each service below links to a real build."
+      />
 
       <div className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 lg:pb-28">
-        <div className="space-y-px border-y border-border bg-border">
+        <div className="space-y-4">
           {services.map((service) => (
             <Reveal key={service.title}>
-              <article className="grid gap-8 bg-background p-7 sm:p-10 lg:grid-cols-12 lg:p-12">
+              <MagicCard
+                gradientColor="rgba(52,211,153,0.08)"
+                gradientFrom="#34d399"
+                gradientTo="#22d3ee"
+                className="rounded-2xl"
+              >
+              <article className="grid gap-8 p-7 sm:p-10 lg:grid-cols-12 lg:p-12">
                 <div className="lg:col-span-5">
-                  <p className="font-mono text-xs text-muted-foreground">{service.index}</p>
-                  <h2 className="mt-4 font-display text-3xl tracking-tight sm:text-4xl">
+                  <p className="inline-flex rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-xs text-muted-foreground">{service.index}</p>
+                  <h2 className="mt-4 font-display text-3xl sm:text-4xl">
                     {service.title}
                   </h2>
                   <p className="mt-4 font-medium text-foreground">{service.outcome}</p>
                   <p className="mt-4 leading-relaxed text-muted-foreground">{service.copy}</p>
                 </div>
                 <div className="space-y-8 lg:col-span-4">
-                  <div>
-                  <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+                  <div className="rounded-xl border border-accent/20 bg-accent/[0.05] p-5">
+                  <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-accent">
                     What you get
                   </h3>
                   <ul className="mt-4 space-y-2.5">
@@ -106,13 +98,13 @@ export default function ServicesPage() {
                   </ul>
                   </div>
                   <div>
-                  <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                     What&rsquo;s included
                   </h3>
                   <ul className="mt-4 space-y-2.5">
                     {service.includes.map((item) => (
                       <li key={item} className="flex items-center gap-2.5 text-sm text-foreground/85">
-                        <span aria-hidden="true" className="inline-block h-1 w-1 bg-accent" />
+                        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
                         {item}
                       </li>
                     ))}
@@ -120,18 +112,19 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-3">
-                  <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
                     {service.proof.label}
                   </h3>
                   <Link
                     href={service.proof.href}
-                    className="group mt-4 inline-flex items-start gap-1.5 font-display text-xl leading-snug tracking-tight hover:text-accent"
+                    className="group mt-4 inline-flex items-start gap-1.5 font-display text-xl leading-snug hover:text-accent"
                   >
                     {service.proof.name}
                     <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
                 </div>
               </article>
+              </MagicCard>
             </Reveal>
           ))}
         </div>
