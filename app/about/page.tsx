@@ -8,7 +8,7 @@ import { projects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "RampLab is a small product engineering studio — one team for architecture, UX, engineering, and deployment. Remote-first.",
+    "RampLab is a small custom software studio — one team for architecture, UX, engineering, and deployment. Remote-first.",
   alternates: { canonical: "/about" },
 };
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
               A small team that takes software personally.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              RampLab is a product engineering studio — designers and engineers
+              RampLab is a custom software studio — designers and engineers
               working as one team from idea to production. Remote-first,
               founder-friendly, and allergic to bloated process.
             </p>

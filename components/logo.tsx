@@ -2,18 +2,19 @@
 
 interface LogoProps {
   className?: string;
-  /** "light" = for dark backgrounds, "dark" = for light backgrounds */
-  variant?: "light" | "dark";
+  /** "light" = white wordmark for dark backgrounds, "dark" = black for light backgrounds, "auto" = follows the site theme */
+  variant?: "light" | "dark" | "auto";
   size?: "sm" | "md" | "lg";
 }
 
 export function RampLabLogo({
   className = "",
-  variant = "light",
+  variant = "auto",
   size = "md",
 }: LogoProps) {
-  const textColor = variant === "light" ? "text-white" : "text-[#0a0a0a]";
-  const accentColor = "#6ee7b7";
+  const textColor =
+    variant === "auto" ? "text-foreground" : variant === "light" ? "text-white" : "text-[#0a0a0a]";
+  const accentColor = variant === "auto" ? "text-accent" : "text-[#6ee7b7]";
 
   const sizeMap = {
     sm: { mark: 24, text: "text-base",  gap: "gap-2"   },
@@ -36,7 +37,7 @@ export function RampLabLogo({
 
       {/* Wordmark */}
       <span className={`${s.text} font-bold tracking-tight leading-none ${textColor}`}>
-        Ramp<span style={{ color: accentColor }}>Lab</span>
+        Ramp<span className={accentColor}>Lab</span>
       </span>
     </span>
   );

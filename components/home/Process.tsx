@@ -7,26 +7,26 @@ const steps = [
   {
     index: "01",
     title: "Discover",
+    youGet: "A clear scope and build plan",
     copy: "We learn the business, the users, and the constraints — then define the smallest product worth building.",
-    detail: "Workshops · requirements · scope",
   },
   {
     index: "02",
     title: "Design",
+    youGet: "Clickable designs you can review",
     copy: "We define the product experience, the system architecture, and the technical plan before writing production code.",
-    detail: "UX · UI · architecture",
   },
   {
     index: "03",
     title: "Build",
+    youGet: "Working builds you can test as we go",
     copy: "We develop in focused iterations with regular working releases you can click, test, and react to.",
-    detail: "Sprints · demos · staging",
   },
   {
     index: "04",
     title: "Launch",
+    youGet: "The live product, code, and handover",
     copy: "We deploy to production, monitor, fix, and keep improving the product with you after go-live.",
-    detail: "Deploy · measure · iterate",
   },
 ];
 
@@ -38,7 +38,7 @@ export function Process() {
         <SectionHeading
           eyebrow="Process"
           title={<span id="process-heading">Idea to production, in four steps.</span>}
-          lede="A simple, legible way of working. You'll always know what's happening, what's next, and what you're paying for."
+          lede="Every step ends with something concrete in your hands, so you always know what's happening, what's next, and what you're paying for."
         />
 
         <ol className="relative grid gap-10 sm:gap-8 lg:grid-cols-4">
@@ -48,19 +48,20 @@ export function Process() {
             className="absolute left-[7px] top-2 bottom-2 w-px bg-border lg:left-2 lg:right-2 lg:top-[7px] lg:bottom-auto lg:h-px lg:w-auto"
           />
           {steps.map((step, i) => (
-            <Reveal as="li" key={step.index} delay={i * 80} className="relative">
+            <Reveal as="li" key={step.index} delay={i * 80} className="relative h-full">
               <span
                 aria-hidden="true"
                 className="absolute left-0 top-1.5 h-[15px] w-[15px] border border-accent bg-background lg:left-0"
               >
                 <span className="absolute inset-[3px] bg-accent" />
               </span>
-              <div className="pl-9 lg:pl-0 lg:pt-10">
+              <div className="flex h-full flex-col pl-9 lg:pl-0 lg:pt-10">
                 <p className="font-mono text-xs text-muted-foreground">{step.index}</p>
                 <h3 className="mt-2 font-display text-2xl tracking-tight sm:text-3xl">{step.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{step.copy}</p>
-                <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground/60">
-                  {step.detail}
+                <p className="mt-3 leading-relaxed text-muted-foreground lg:mb-5">{step.copy}</p>
+                <p className="mt-5 border-t border-border pt-4 text-sm text-foreground lg:mt-auto">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">You get</span>
+                  <span className="mt-1 block">{step.youGet}</span>
                 </p>
               </div>
             </Reveal>

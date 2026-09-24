@@ -3,8 +3,8 @@ import { Reveal } from "@/components/site/Reveal";
 
 const reasons = [
   {
-    title: "One technical team",
-    copy: "From architecture to deployment, your project stays with one team. Nothing gets lost between a designer, a contractor, and a dev shop.",
+    title: "One team, start to finish",
+    copy: "Product thinking, design, engineering, and deployment under one roof. Nothing gets lost between a designer, a contractor, and a dev shop — and when something breaks, there's exactly one team responsible.",
   },
   {
     title: "Direct communication",
@@ -13,10 +13,6 @@ const reasons = [
   {
     title: "Fast iteration",
     copy: "We ship working software early, put it in front of users, and improve continuously — instead of disappearing for months.",
-  },
-  {
-    title: "End-to-end ownership",
-    copy: "Product thinking, UX, engineering, and deployment under one roof. When something breaks, there's exactly one team responsible.",
   },
 ];
 

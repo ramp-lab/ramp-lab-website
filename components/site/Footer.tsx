@@ -16,10 +16,10 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Link href="/" aria-label="RampLab home" className="inline-block">
-              <RampLabLogo variant="light" size="md" />
+              <RampLabLogo size="md" />
             </Link>
             <p className="mt-5 max-w-sm leading-relaxed text-muted-foreground">
-              A product engineering studio. We design and build MVPs, SaaS products,
+              A custom software studio. We design and build MVPs, SaaS products,
               AI applications, and custom software for founders and growing businesses.
             </p>
             <p className="mt-6 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">

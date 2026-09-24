@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductMock } from "@/components/work/ProductMock";
+import { deliverables } from "@/components/home/Deliverables";
+
+const builds = ["Web apps & SaaS", "AI products", "Desktop & mobile apps", "Internal tools"];
 
 export function Hero() {
   return (
@@ -13,28 +16,33 @@ export function Hero() {
         <div className="lg:col-span-7">
           <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
             <span aria-hidden="true" className="inline-block h-px w-10 bg-accent" />
-            Product engineering studio
+            Custom software studio
           </p>
 
           <h1
             id="hero-heading"
             className="mt-7 font-display text-[2.75rem] leading-[1.0] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
           >
-            Have an idea?
-            <br />
-            Let&rsquo;s turn it into{" "}
-            <em className="text-accent">a real product.</em>
+            We design and build your software
+            <em className="text-accent"> — and hand you everything.</em>
           </h1>
 
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            RampLab designs and builds MVPs, SaaS products, AI applications, and
-            custom software for founders and businesses that need a technical
-            team to ship.
+            RampLab is a design and engineering team for founders and growing
+            businesses. You bring the idea or the problem; we take it from
+            first sketch to a live product your customers and team can use.
           </p>
-          <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">
-            From product architecture and UX to engineering and deployment —
-            we handle the entire build.
-          </p>
+
+          <ul aria-label="What we build" className="mt-6 flex flex-wrap gap-2">
+            {builds.map((item) => (
+              <li
+                key={item}
+                className="border border-border bg-background/60 px-3 py-1.5 font-mono text-xs text-foreground/80"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button
@@ -49,7 +57,7 @@ export function Hero() {
             <Button
               asChild
               variant="outline"
-              className="group h-auto rounded-none px-7 py-3.5 text-base hover:border-accent hover:bg-transparent hover:text-accent"
+              className="group h-auto rounded-none bg-transparent px-7 py-3.5 text-base hover:border-accent hover:bg-transparent hover:text-accent"
             >
               <Link href="/work">
                 View our work
@@ -57,30 +65,23 @@ export function Hero() {
               </Link>
             </Button>
           </div>
-
-          <p className="mt-10 border-t border-border pt-6 font-mono text-xs leading-relaxed text-muted-foreground">
-            Recent work — GST invoicing desktop app · AI audit analytics · LMS
-            platform ·{" "}
-            <Link href="/work" className="text-foreground underline decoration-border underline-offset-4 hover:text-accent">
-              see all seven builds
-            </Link>
-          </p>
         </div>
 
         <div className="mt-12 lg:col-span-5 lg:mt-6">
           <ProductMock variant="inventory-invoicing" figLabel="fig. 01 — invoicing workspace" />
-          <dl className="mt-4 grid grid-cols-3 gap-px border border-border bg-border font-mono text-[11px]">
-            {[
-              ["scope", "idea → production"],
-              ["team", "design + engineering"],
-              ["handoff", "you own the code"],
-            ].map(([k, v]) => (
-              <div key={k} className="bg-background px-3 py-2.5">
-                <dt className="uppercase tracking-[0.14em] text-muted-foreground">{k}</dt>
-                <dd className="mt-1 text-foreground">{v}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="mt-4 border border-border bg-background">
+            <p className="border-b border-border px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+              What you walk away with
+            </p>
+            <ul className="grid gap-px bg-border sm:grid-cols-2">
+              {deliverables.map((item) => (
+                <li key={item.short} className="flex items-center gap-2.5 bg-background px-4 py-3 text-sm text-foreground">
+                  <Check aria-hidden="true" className="h-4 w-4 shrink-0 text-accent" />
+                  {item.short}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

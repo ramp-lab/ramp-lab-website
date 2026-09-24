@@ -53,7 +53,7 @@ export function Navbar() {
           className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
         >
           <Link href="/" aria-label="RampLab home" className="shrink-0">
-            <RampLabLogo variant="light" size="sm" />
+            <RampLabLogo size="sm" />
           </Link>
 
           <ul className="hidden items-center gap-8 md:flex">

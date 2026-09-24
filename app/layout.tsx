@@ -24,12 +24,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const SITE_URL = 'https://www.ramplab.me';
-const DESCRIPTION = 'RampLab designs and builds MVPs, SaaS products, AI applications and custom software for founders and growing businesses.';
+const DESCRIPTION = 'RampLab designs and builds custom software — web apps, SaaS, AI products, desktop and mobile apps — and hands you the live product, the source code, the designs and the docs.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'RampLab — Product Engineering Studio',
+    default: 'RampLab — Custom Software Studio',
     template: '%s — RampLab',
   },
   description: DESCRIPTION,
@@ -40,12 +40,12 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE_URL,
     siteName: 'RampLab',
-    title: 'RampLab — Product Engineering Studio',
+    title: 'RampLab — Custom Software Studio',
     description: DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RampLab — Product Engineering Studio',
+    title: 'RampLab — Custom Software Studio',
     description: DESCRIPTION,
   },
   robots: {

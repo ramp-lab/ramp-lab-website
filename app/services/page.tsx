@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { FinalCta } from "@/components/site/FinalCta";
 import { SectionHeading } from "@/components/site/SectionHeading";
+import { DeliverablesGrid } from "@/components/home/Deliverables";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -16,6 +17,7 @@ const services = [
   {
     index: "01",
     title: "MVP Development",
+    youGet: ["A launched first version real users can sign up to", "Code built to grow, not to throw away"],
     outcome: "Turn an idea into a working product that can reach real users.",
     copy: "We scope ruthlessly, design the core experience, and build the smallest product that proves your idea in the hands of users — architected so it can grow instead of being thrown away.",
     includes: ["Product scoping & roadmap", "UX & interface design", "Full-stack build", "Deployment & launch support"],
@@ -24,6 +26,7 @@ const services = [
   {
     index: "02",
     title: "SaaS & Web Applications",
+    youGet: ["A production app with accounts, roles, and billing", "Admin tools to run it day to day"],
     outcome: "Production-ready applications, dashboards, and platforms.",
     copy: "Multi-user products with real data, real permissions, and real uptime requirements. Auth, billing, roles, and integrations — engineered as one system, not bolted on later.",
     includes: ["Dashboards & platforms", "Authentication & role-based access", "Billing & subscriptions", "APIs & third-party integrations"],
@@ -32,6 +35,7 @@ const services = [
   {
     index: "03",
     title: "AI Products",
+    youGet: ["AI features working on your own data, in production", "Review screens where people stay in control"],
     outcome: "AI capabilities turned into software people actually use.",
     copy: "RAG systems, analysis pipelines, and AI-powered workflows grounded in your data and deployed in production — with humans in the loop where judgment matters.",
     includes: ["RAG systems & AI workflows", "Analysis & scoring pipelines", "Agents & automation", "Human-in-the-loop review UX"],
@@ -40,6 +44,7 @@ const services = [
   {
     index: "04",
     title: "Internal Tools",
+    youGet: ["A tool your team uses daily instead of spreadsheets", "Reports and data you can actually trust"],
     outcome: "Software designed around how your business actually operates.",
     copy: "Replace spreadsheets, manual processes, and fragmented workflows with purpose-built tools for operations, administration, and reporting.",
     includes: ["Workflow automation", "Admin & operations tooling", "Data & reporting systems", "Desktop & offline-capable apps"],
@@ -65,8 +70,9 @@ export default function ServicesPage() {
               What we build.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Every engagement is measured by the business outcome it produces.
-              Each service below links to a real build that proves we can do it.
+              We design and build custom software end to end — and every project
+              ends with the live product, the source code, the design files, and
+              the docs in your hands. Each service below links to a real build.
             </p>
           </Reveal>
         </div>
@@ -85,7 +91,21 @@ export default function ServicesPage() {
                   <p className="mt-4 font-medium text-foreground">{service.outcome}</p>
                   <p className="mt-4 leading-relaxed text-muted-foreground">{service.copy}</p>
                 </div>
-                <div className="lg:col-span-4">
+                <div className="space-y-8 lg:col-span-4">
+                  <div>
+                  <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
+                    What you get
+                  </h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {service.youGet.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
+                        <Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  </div>
+                  <div>
                   <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
                     What&rsquo;s included
                   </h3>
@@ -97,6 +117,7 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
+                  </div>
                 </div>
                 <div className="lg:col-span-3">
                   <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -115,7 +136,16 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <Reveal className="mt-14">
+        <div className="mt-20 lg:mt-28">
+          <SectionHeading
+            eyebrow="Every project, every service"
+            title="What you walk away with."
+            lede="Whichever service you start with, the project ends with these four things in your hands."
+          />
+          <DeliverablesGrid />
+        </div>
+
+        <Reveal className="mt-20 lg:mt-28">
           <SectionHeading
             eyebrow="Not listed?"
             title="If it runs in production, we can probably build it."
