@@ -64,3 +64,12 @@ Title default "RampLab — Custom Software Studio"; description leads with "We d
 - `npm run build` passes with no type or lint errors.
 - Homepage and services page checked in the browser at desktop (1280px) and phone (375px) widths, in both light and dark color schemes.
 - Grep confirms no remaining hardcoded white/mint colors outside the theme tokens and the logo mark.
+
+## Amendment (same day) — dark premium + component library
+
+User feedback after the first pass: the light theme was invisible on their machine (macOS dark mode triggered the old graphite variant) and the flat bordered-box layout still read as "vibe coded". Revised direction, approved by the user:
+
+- **Single fixed dark theme** (no `prefers-color-scheme` switching): near-black `#07090a`, emerald `#34d399` → cyan `#22d3ee` glow from the logo. Display font switched from Instrument Serif to bold, tight Instrument Sans.
+- **Magic UI + Aceternity components** (21st.dev's registry requires an account; these are the same components from their open registries): Spotlight + AnimatedGridPattern + WordRotate hero, Marquee tech strip (stack from `lib/projects.ts` only), MagicCard bento for deliverables and services, 3D card project previews, AnimatedBeam process timeline, BorderBeam on the hero preview and final CTA, shimmer CTA (`components/site/ShimmerLink.tsx`, a link version of ShimmerButton).
+- Floating pill navbar; pill section eyebrows; rounded cards everywhere on the homepage.
+- Other pages inherit the theme and fonts but keep their existing layouts for now.

@@ -10,33 +10,36 @@ interface SectionHeadingProps {
   align?: "left" | "center";
 }
 
-/** Consistent editorial section header: mono eyebrow, serif headline, muted lede. */
+/** Consistent section header: pill eyebrow, bold sans headline, muted lede. */
 export function SectionHeading({ eyebrow, title, lede, className, align = "left" }: SectionHeadingProps) {
   return (
     <Reveal
       className={cn(
-        "mb-14 lg:mb-20",
-        align === "center" && "text-center mx-auto max-w-3xl",
+        "mb-14 lg:mb-16",
+        align === "center" && "mx-auto max-w-3xl text-center",
         className
       )}
     >
       <p
         className={cn(
-          "flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6",
-          align === "center" && "justify-center"
+          "mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground"
         )}
       >
-        <span aria-hidden="true" className="inline-block h-px w-10 bg-accent" />
+        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(52,211,153,0.6)]" />
         {eyebrow}
-        {align === "center" && (
-          <span aria-hidden="true" className="inline-block h-px w-10 bg-accent" />
-        )}
       </p>
-      <h2 className="font-display text-4xl leading-[1.02] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h2 className="font-display text-4xl leading-[1.05] text-foreground sm:text-5xl lg:text-[3.5rem]">
         {title}
       </h2>
       {lede && (
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{lede}</p>
+        <p
+          className={cn(
+            "mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground",
+            align === "center" && "mx-auto"
+          )}
+        >
+          {lede}
+        </p>
       )}
     </Reveal>
   );

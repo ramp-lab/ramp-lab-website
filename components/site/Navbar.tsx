@@ -39,24 +39,24 @@ export function Navbar() {
   }, [open ]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <div
         className={cn(
-          "border-b transition-colors duration-300",
+          "mx-auto rounded-full border transition-all duration-500 ease-out",
           scrolled || open
-            ? "border-border bg-background/90 backdrop-blur-md"
-            : "border-transparent bg-transparent"
+            ? "max-w-4xl border-white/10 bg-background/70 shadow-[0_8px_40px_-12px_rgba(52,211,153,0.25)] backdrop-blur-xl"
+            : "max-w-6xl border-transparent bg-transparent"
         )}
       >
         <nav
           aria-label="Primary"
-          className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
+          className="flex h-14 items-center justify-between pl-5 pr-2"
         >
           <Link href="/" aria-label="RampLab home" className="shrink-0">
             <RampLabLogo size="sm" />
           </Link>
 
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center gap-1 md:flex">
             {links.map((link) => {
               const active =
                 pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
@@ -66,8 +66,10 @@ export function Navbar() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "text-sm transition-colors",
-                      active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                      "rounded-full px-4 py-2 text-sm transition-colors",
+                      active
+                        ? "bg-white/[0.07] text-foreground"
+                        : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
                     )}
                   >
                     {link.name}
@@ -80,7 +82,7 @@ export function Navbar() {
           <div className="hidden md:block">
             <Button
               asChild
-              className="group h-auto rounded-none px-4 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+              className="group h-auto rounded-full bg-foreground px-5 py-2.5 text-sm text-background hover:bg-accent hover:text-accent-foreground"
             >
               <Link href="/contact">
                 Start a project
@@ -96,7 +98,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="md:hidden"
+            className="rounded-full md:hidden"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
@@ -104,7 +106,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-b border-border bg-background md:hidden">
+        <div className="mx-auto mt-2 max-w-4xl rounded-3xl border border-white/10 bg-background/95 backdrop-blur-xl md:hidden">
           <nav aria-label="Mobile" className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
             <ul className="flex flex-col">
               {links.map((link) => (
@@ -121,7 +123,7 @@ export function Navbar() {
             </ul>
             <Button
               asChild
-              className="mt-4 h-auto w-full rounded-none px-4 py-3.5 text-base hover:bg-accent hover:text-accent-foreground"
+              className="mt-4 h-auto w-full rounded-full px-4 py-3.5 text-base hover:bg-accent hover:text-accent-foreground"
             >
               <Link href="/contact">
                 Start a project

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { Deliverables } from "@/components/home/Deliverables";
+import { TechMarquee } from "@/components/home/TechMarquee";
 import { SelectedWork } from "@/components/home/SelectedWork";
 import { Services } from "@/components/home/Services";
 import { WhyRampLab } from "@/components/home/WhyRampLab";
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <TechMarquee />
       <Deliverables />
       <Services />
       <SelectedWork />
