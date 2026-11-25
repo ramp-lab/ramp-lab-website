@@ -1,15 +1,8 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { Navbar } from '@/components/site/Navbar'
-import { Footer } from '@/components/site/Footer'
 import './globals.css'
-
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  variable: '--font-instrument'
-});
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -74,21 +67,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:text-background"
-        >
-          Skip to content
-        </a>
+    <html lang="en">
+      <body className={`${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <Navbar />
-        <main id="main">{children}</main>
-        <Footer />
+        {children}
         <Analytics />
       </body>
     </html>

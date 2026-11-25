@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/home/Hero";
-import { Deliverables } from "@/components/home/Deliverables";
-import { TechMarquee } from "@/components/home/TechMarquee";
-import { SelectedWork } from "@/components/home/SelectedWork";
-import { Services } from "@/components/home/Services";
-import { WhyRampLab } from "@/components/home/WhyRampLab";
-import { Process } from "@/components/home/Process";
-import { FinalCta } from "@/components/site/FinalCta";
+import { RampLabLanding } from "@/components/home/RampLabLanding";
 
 export const metadata: Metadata = {
   title: "RampLab — Custom Software Studio",
@@ -16,16 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <TechMarquee />
-      <Deliverables />
-      <Services />
-      <SelectedWork />
-      <Process />
-      <WhyRampLab />
-      <FinalCta />
-    </>
-  );
+  return <RampLabLanding />;
 }
