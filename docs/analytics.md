@@ -20,7 +20,7 @@ Link to the site with `?r=` and a short tag for that person:
 
 ```
 https://www.ramplab.me/?r=jane-acme
-https://www.ramplab.me/work/legal-intelligence?r=jane-acme
+https://www.ramplab.me/?r=jane-acme#work
 ```
 
 - Tags are lowercased; use letters, numbers, `-` `.` `_` `@` `+` (max 64 chars).

@@ -10,6 +10,18 @@ const nextConfig = {
   },
   // PostHog reverse proxy (see instrumentation-client.ts).
   skipTrailingSlashRedirect: true,
+  // The site is a single scrolling page now. Old page URLs (shared in emails,
+  // LinkedIn, search results) land on the matching section instead of a 404.
+  async redirects() {
+    return [
+      { source: '/work/:slug*', destination: '/#work', permanent: true },
+      { source: '/work', destination: '/#work', permanent: true },
+      { source: '/services', destination: '/#services', permanent: true },
+      { source: '/process', destination: '/#process', permanent: true },
+      { source: '/about', destination: '/#about', permanent: true },
+      { source: '/contact', destination: '/#contact', permanent: true },
+    ]
+  },
   async rewrites() {
     return [
       {
